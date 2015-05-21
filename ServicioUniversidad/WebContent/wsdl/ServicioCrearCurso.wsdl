@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://servicios" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://servicios" xmlns:intf="http://servicios" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://servicios" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="asignarProfesor">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+      <element name="nombreCurso" type="xsd:string"/>
+      <element name="rutProfe" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="asignarProfesorResponse">
+    <complexType>
+     <sequence>
+      <element name="asignarProfesorReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="crearCurso">
+    <complexType>
+     <sequence>
+      <element name="nombre" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="crearCursoResponse">
+    <complexType>
+     <sequence>
+      <element name="crearCursoReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="asignarProfesorRequest">
+
+      <wsdl:part element="impl:asignarProfesor" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="crearCursoResponse">
+
+      <wsdl:part element="impl:crearCursoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="asignarProfesorResponse">
+
+      <wsdl:part element="impl:asignarProfesorResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="crearCursoRequest">
+
+      <wsdl:part element="impl:crearCurso" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="ServicioCrearCurso">
+
+      <wsdl:operation name="asignarProfesor">
+
+         <wsdl:input message="impl:asignarProfesorRequest" name="asignarProfesorRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:asignarProfesorResponse" name="asignarProfesorResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="crearCurso">
+
+         <wsdl:input message="impl:crearCursoRequest" name="crearCursoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:crearCursoResponse" name="crearCursoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ServicioCrearCursoSoapBinding" type="impl:ServicioCrearCurso">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="asignarProfesor">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="asignarProfesorRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="asignarProfesorResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="crearCurso">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="crearCursoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="crearCursoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ServicioCrearCursoService">
+
+      <wsdl:port binding="impl:ServicioCrearCursoSoapBinding" name="ServicioCrearCurso">
+
+         <wsdlsoap:address location="http://localhost:8080/ServicioUniversidad/services/ServicioCrearCurso"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

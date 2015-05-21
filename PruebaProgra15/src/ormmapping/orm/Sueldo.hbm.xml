@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: 
+License Type: Evaluation
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="orm.Sueldo" table="sueldo" lazy="false">
+		<id name="id" column="id" type="integer" unsaved-value="0">
+			<generator class="increment">
+			</generator>
+		</id>
+		<many-to-one name="jefeadministracion" cascade="lock" column="jefeadministracionid" class="orm.Jefeadministracion" not-null="false" lazy="no-proxy" access="field">
+		</many-to-one>
+		<many-to-one name="curso_profesor" cascade="lock" column="curso_profesorid" class="orm.Curso_profesor" not-null="true" lazy="no-proxy" access="field">
+		</many-to-one>
+		<property name="curso_profesorcursoid" column="curso_profesorcursoid" type="integer" length="10" not-null="true" lazy="false"/>
+		<property name="curso_profesorprofesorid" column="curso_profesorprofesorid" type="integer" length="10" not-null="true" lazy="false"/>
+		<property name="monto" column="monto" type="integer" length="10" not-null="false" lazy="false"/>
+	</class>
+</hibernate-mapping>

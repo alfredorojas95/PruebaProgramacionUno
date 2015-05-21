@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ServicioMatriculaService WSDL service -->
+
+  <service name="ServicioMatricula" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://servicios"/>
+      <parameter name="wsdlServiceElement" value="ServicioMatriculaService"/>
+      <parameter name="schemaQualified" value="http://servicios"/>
+      <parameter name="wsdlServicePort" value="ServicioMatricula"/>
+      <parameter name="className" value="servicios.ServicioMatricula"/>
+      <parameter name="wsdlPortType" value="ServicioMatricula"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://servicios" xmlns:retNS="http://servicios" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="mostrarMorososMatricula" qname="operNS:mostrarMorososMatricula" returnQName="retNS:mostrarMorososMatriculaReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <parameter name="allowedMethods" value="mostrarMorososMatricula"/>
+
+  </service>
+</deployment>
